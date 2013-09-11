@@ -42,6 +42,7 @@
       uiCombo: null,
       uiInput: null,
       _wasOpen: false,
+      listboxStyle: false,
 
       _create: function() {
 
@@ -147,8 +148,11 @@
                 if ( !valid ) {
 
                    // remove invalid value, as it didn't match anything
-                   $el.val( "" );
-                   this.element.prop('selectedIndex', -1);
+                   // if listboxStyle is true, works like listbox , remove invalid value as it didn't match
+                   if(this.listboxStyle){
+                      $el.val( "" );
+                      this.element.prop('selectedIndex', -1);
+                   }
                    //return false;
 
                 }
