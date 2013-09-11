@@ -205,7 +205,10 @@
 
          if ( !arguments.length ) {
             selected = select.children( ":selected" );
-            return selected.length > 0 ? selected.val() : null;
+            if(this.listBoxStyle)
+            	  return selected.length > 0 ? selected.val() : null;
+            else
+            	  return this.uiInput.val();
          }
 
          select.prop('selectedIndex', -1);
